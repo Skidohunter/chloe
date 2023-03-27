@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PrestationsController!{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1>Hello {% if  app.user %}{{app.user.email}}{% endif %}</h1>
+</div>
+
+{# is granted permet de récupere la valeur que l'on veut dans l'entité user,
+en l'occurence ici le role admin pour l'ajout d'article. #}
+
+{% if is_granted('ROLE_ADMIN') %}
+    <section class="sectionForm">
+        <div class='form'>
+            {{form(form)}}
+        </div>
+    </section>
+{% endif %}
+
+<section id="indexPresta">
+    {% for presta in prestas %}
+        <article class="indexArticle">
+            <h3>{{presta.name}}</h3>
+            <img src="{{asset('imgPrestations/' ~ presta.img )}}" alt"{{presta.name}}" />
+            <a class="btn" href="{{ path('app_formules', {'id': presta.id}) }}">Voir Formules<a>
+            {# {{ include('music/_delete_form.html.twig') }}     #}
+        </article>      
+    {% endfor %}
+</section>
+
+
+{% endblock %}
