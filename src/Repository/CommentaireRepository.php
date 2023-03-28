@@ -39,6 +39,19 @@ class CommentaireRepository extends ServiceEntityRepository
         }
     }
 
+    public function findComsById(int $id): ?Commentaire
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->leftJoin('c.realisationId','r')
+            ->addSelect('r')
+            ->andWhere('c.id = :id')
+            ->setParameter('id',$id)
+            ->getQuery();
+
+        return $qb->getOneOrNullResult();
+            
+    }
+
 //    /**
 //     * @return Commentaire[] Returns an array of Commentaire objects
 //     */

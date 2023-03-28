@@ -39,6 +39,19 @@ class RealisationsRepository extends ServiceEntityRepository
         }
     }
 
+    public function findRealById(int $id): ?Realisations
+    {
+        $qb = $this->createQueryBuilder('r')
+            ->leftJoin('r.prestationsId','p')
+            ->addSelect('p')
+            ->andWhere('r.id = :id')
+            ->setParameter('id',$id)
+            ->getQuery();
+
+        return $qb->getOneOrNullResult();
+            
+    }
+
 //    /**
 //     * @return Realisations[] Returns an array of Realisations objects
 //     */

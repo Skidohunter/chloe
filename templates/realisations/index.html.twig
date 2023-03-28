@@ -17,9 +17,7 @@
             <h3>{{real.name}}</h3>
             <p>{{real.description}}</p>
             <p>{{real.id}}</p>
-        {% if is_granted('ROLE_USER') %}
-            <a href="{{path('app_commentaire')}}">Ajout d'un Commentaire</a>
-        {% endif %}
+            <a class="btn" href="{{ path('app_realisation_show', {'id': real.id}) }}">Voir Evenement<a>
         </article>      
     {% endfor %}
 </section>

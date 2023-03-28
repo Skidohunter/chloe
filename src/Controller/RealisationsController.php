@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Realisations;
 use App\Form\RealisationsType;
+use App\Repository\CommentaireRepository;
 use App\Repository\PrestationsRepository;
 use App\Repository\RealisationsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,6 +48,29 @@ class RealisationsController extends AbstractController
             'form' => $form->createView(),
             'reals' => $realisationsRepository->findAll()
         ]);
+    }
+
+            /**
+     * @Route("/realisations/{id}", name="app_realisation_show", methods={"GET"})
+     */
+    public function show(CommentaireRepository $commentaireRepository,RealisationsRepository $realisationsRepository,$id): Response
+    {
+        return $this->render('realisations/show.html.twig', [
+            'real' => $realisationsRepository->findRealById($id),
+            'coms' => $commentaireRepository->findBy(['realisationId'=> $id])
+        ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="app_realisation_delete", methods={"POST"})
+     */
+    public function delete(Request $request, Realisations $real, RealisationsRepository $realisationsRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$real->getId(), $request->request->get('_token'))) {
+            $realisationsRepository->remove($real, true);
+        }
+
+        return $this->redirectToRoute('app_realisations', [], Response::HTTP_SEE_OTHER);
     }
 
     
