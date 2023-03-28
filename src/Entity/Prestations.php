@@ -39,10 +39,16 @@ class Prestations
      */
     private $locations;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Realisations::class, mappedBy="prestationsId")
+     */
+    private $realisations;
+
     public function __construct()
     {
         $this->formules = new ArrayCollection();
         $this->locations = new ArrayCollection();
+        $this->realisations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,6 +132,36 @@ class Prestations
     {
         if ($this->locations->removeElement($location)) {
             $location->removePrestation($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Realisations>
+     */
+    public function getRealisations(): Collection
+    {
+        return $this->realisations;
+    }
+
+    public function addRealisation(Realisations $realisation): self
+    {
+        if (!$this->realisations->contains($realisation)) {
+            $this->realisations[] = $realisation;
+            $realisation->setPrestationsId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRealisation(Realisations $realisation): self
+    {
+        if ($this->realisations->removeElement($realisation)) {
+            // set the owning side to null (unless already changed)
+            if ($realisation->getPrestationsId() === $this) {
+                $realisation->setPrestationsId(null);
+            }
         }
 
         return $this;

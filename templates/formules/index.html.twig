@@ -8,10 +8,8 @@
 <div class="example-wrapper">
     <h1>Hello {% if  app.user %}{{app.user.email}}{% endif %}</h1>
 </div>
-
 {# is granted permet de récupere la valeur que l'on veut dans l'entité user,
 en l'occurence ici le role admin pour l'ajout d'article. #}
-
 {% if is_granted('ROLE_ADMIN') %}
     <section class="sectionForm">
         <div class='form'>
@@ -20,14 +18,18 @@ en l'occurence ici le role admin pour l'ajout d'article. #}
     </section>
 {% endif %}
 <section id="indexPresta">
-    {% for formule in formules %}
-        <article class="indexArticle">
-            <h3>{{formule.name}}</h3>
-            <p></p>
-            {# {{ include('music/_delete_form.html.twig') }}     #}
-        </article>      
-    {% endfor %}
+    {% if prestation.formules is not empty %}
+        <h2>Formules :</h2>
+        <ul>
+            {% for formule in prestation.formules %}
+                <li>{{ formule.name }} - {{formule.description}} - {{ formule.prix }} €</li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{path('edit' , {'id' : formule.id})}}">Modifier</a>
+                    <a href="{{path('remove' , {'id' : formule.id})}}">Supprimer</a>
+                {% endif %}  
+            {% endfor %}
+        </ul>
+           
+    {% endif %}
 </section>
-
-
 {% endblock %}

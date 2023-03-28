@@ -40,18 +40,18 @@ class PrestationsRepository extends ServiceEntityRepository
         }
     }
 
-    // public function findByPresta(int $id): ?Locations
-    // {
-    //     $qb = $this->createQueryBuilder('l')
-    //         ->leftJoin('p.name','p')
-    //         ->addSelect('p')
-    //         ->andWhere('p.id = :id')
-    //         ->setParameter('id',$id)
-    //         ->getQuery();
-
-    //     return $qb->getOneOrNullResult();
+    public function findFormulesByPresta(int $id): ?Prestations
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->leftJoin('p.formules', 'f')
+            ->addSelect('f')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
             
-    // }
+    }
 
 //    /**
 //     * @return Prestations[] Returns an array of Prestations objects

@@ -2,8 +2,14 @@
     <nav>
         <ul>
             <li><a href="{{path('app_prestations')}}">Accueil</a></li>
-            <li><a>Prestations</a></li>
-            <li><a>Réalisations</a></li>
+            <li><a>Prestations ▼</a>
+                <ul>
+                    <li><a href="{{ path('app_formules', {'id': 1}) }}">Mariage</a></li>
+                    <li><a href="{{ path('app_formules', {'id': 2}) }}">Baby shower</a></li>
+                    <li><a href="{{ path('app_formules', {'id': 3}) }}">Anniversaire</a></li> 
+                </ul>
+            </li>
+            <li><a href="{{path('app_realisations')}}">Realisations</a></li>
             <li><a href="{{path('app_locations')}}">Locations</a></li> 
             <li><a>A propos</a></li> 
             <li><a>Contact</a></li> 
@@ -18,3 +24,14 @@
         </ul>
     </nav>
 </header>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('nav ul li a').click(function(){
+            if($(this).text() == 'Prestations ▼'){
+                $('nav ul li ul').toggle();
+            }
+        });
+    });
+</script>

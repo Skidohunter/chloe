@@ -56,7 +56,11 @@ class PrestationsController extends AbstractController
         /**
      * @Route("/formules/{id}", name="app_formules"),methods={"GET", "POST"})
      */
-    public function addFormule(Request $request,FormulesRepository $formulesRepository,PrestationsRepository $prestationsRepository, $id)
+    public function addFormule(
+        Request $request,
+        FormulesRepository $formulesRepository,
+        PrestationsRepository $prestationsRepository, 
+        $id)
     {
        
         // Gere l'affichage
@@ -72,10 +76,45 @@ class PrestationsController extends AbstractController
             $formulesRepository->add($formule,true);
             
         }
+        $prestation = $prestationsRepository->findFormulesByPresta($id);
+        
         return $this->render('formules/index.html.twig', [
             'form' => $form->createView(),
-            'formules' => $formulesRepository->findAll(),
+            'prestation' => $prestation,
            
         ]);
     }
+
+    #[Route('/remove_formules/{id}',name:'remove')]
+    public function removeFormule(FormulesRepository $formulesRepository, $id){
+
+        $formule = $formulesRepository->findOneBy(['id' => $id ]);
+        $formulesRepository->remove($formule ,true );
+
+        return $this->redirectToRoute('app_prestations');
+
+
+    }
+
+    #[Route('/edit_formules/{id}',name:'edit')]
+    public function formuleEdit($id ,FormulesRepository $formulesRepository,Request $request)
+    {
+        $formule = $formulesRepository->findOneBy(['id' => $id ]);
+        $formuleForm = $this->createForm(FormulesType::class,$formule);
+        $formuleForm->handleRequest($request);
+       
+        if($formuleForm->isSubmitted() && $formuleForm->isValid()){
+            $formulesRepository->add($formule,true);
+            return $this->redirectToRoute('app_formules',['id' => $formule->getRelation()->getId()]);
+        }
+        return $this->render('formules/editFormule.html.twig',[
+            'form' => $formuleForm->createView(),
+            'formuleName'  => $formule->getName()
+          
+        ]);
+    }
+    
+    
+
+    
 }
