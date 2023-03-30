@@ -15,12 +15,14 @@
     {% for loc in locs %}
         <article class="indexArticle">
             <h3>{{loc.name}}</h3>
+            <img src="{{asset('imgPrestations/' ~ loc.img )}}" alt"{{loc.name}}" />
             {% for presta in loc.prestation %}
                 <h4>{{presta.name}}</h4>
             {% endfor %}
-
-            {# {{ dump(loc) }} #}
-            <p></p>
+            {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{path('editLoc' , {'id' : loc.id})}}">Modifier</a>
+                    {{ include('locations/_delete_form.html.twig') }} 
+            {% endif %}
         </article>      
     {% endfor %}
 </section>

@@ -7,31 +7,65 @@
         {% for message in app.flashes('admin') %}
             {{message}}
         {% endfor %}
-        <section>
-            <h2>Commentaires</h2>
-            {% for com in coms %}
-                <h3>{{com.commentaire}}</h3>
-                <p>{{com.name}}</p>
-                {{ include('admin/_delete_form.html.twig') }}  
-            {% endfor %}
-        </section>
-        <section>
-            <h2>Users</h2>
-            {% for user in users %}
-                <h3>{{user.email}}</h3>
-                <p>{{user.pseudo}}</p>
-                {{ include('admin/_delete_form.html2.twig') }}  
-            {% endfor %}
-        </section>
-        <section>
-            <h2>Contact</h2>
-            {% for contact in contacts %}
-                <h3>{{contact.email}}</h3>
-                <p>{{contact.date|date('Y,D,M')}}</p>
-                <p>{{contact.demande}}</p>
-                 
-            {% endfor %}
-        </section>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Commentaire</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for com in coms %}
+                    <tr>
+                        <td>{{com.name}}</td>
+                        <td>{{com.commentaire}}</td>
+                        <td>{{ include('admin/_delete_form.html.twig') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User pseudo</th>
+                    <th>User mail</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{user.pseudo}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{ include('admin/_delete_form.html2.twig') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Contact Mail</th>
+                    <th>Date</th>
+                    <th>Demande</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                    <tr>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.date|date('Y,D,M')}}</td>
+                        <td>{{contact.demande}}</td>
+                        <td>{{ include('admin/_delete_form.html3.twig') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
         
         
         

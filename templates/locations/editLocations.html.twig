@@ -1,0 +1,13 @@
+{% extends 'base.html.twig'%}
+{% block title %}Blog : edit {{locName}}{% endblock %}
+
+    {% block body %}
+
+        <h1>Modification de la loc : </h1>
+        <article class='form'>
+            {{form(form)}}
+        </article>
+        <a href="{{path('app_prestations')}}">Accueil</a>
+
+    {% endblock %}
+  

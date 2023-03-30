@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
+use App\Entity\FormulaireDeContact;
 use App\Entity\User;
 use App\Repository\CommentaireRepository;
 use App\Repository\FormulaireDeContactRepository;
@@ -54,4 +55,18 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('app_admin', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/delete/contact/{id}", name="app_com_delete", methods={"POST"})
+     */
+
+     public function deleteContact(Request $request,FormulaireDeContact $contact,FormulaireDeContactRepository $formulaireDeContactRepository) :Response
+     {
+         if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
+             $formulaireDeContactRepository->remove($contact, true);
+             $this->addFlash('admin','User supprimé avec succés'); 
+         }
+ 
+         return $this->redirectToRoute('app_admin', [], Response::HTTP_SEE_OTHER);
+     }
 }

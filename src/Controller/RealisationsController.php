@@ -58,7 +58,7 @@ class RealisationsController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="app_realisation_delete", methods={"POST"})
+     * @Route("/realisations/delete/{id}", name="app_realisation_delete", methods={"POST"})
      */
     public function delete(Request $request, Realisations $real, RealisationsRepository $realisationsRepository): Response
     {
