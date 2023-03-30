@@ -33,13 +33,9 @@ class RealisationsController extends AbstractController
                //Definit le nouveau non de Img à envoyer en BDD
                $real->setImg($newFileName);
                // Permet de créer un message de succes à l'envoie du formulaire avec image
-               $this->addFlash('succes','Real ajouté avec succés');
-           }else{
-                // Permet de créer un message de succes à l'envoie du formulaire sans image
-               $this->addFlash('succes','Real random ajouté');
            }
-
            $realisationsRepository->add($real,true);
+           $this->addFlash('succes','Real ajouté avec succés');
 
 
         }

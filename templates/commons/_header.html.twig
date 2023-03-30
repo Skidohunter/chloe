@@ -12,13 +12,17 @@
             <li><a href="{{path('app_realisations')}}">Realisations</a></li>
             <li><a href="{{path('app_locations')}}">Locations</a></li> 
             <li><a>A propos</a></li> 
-            <li><a>Contact</a></li> 
+            <li><a href="{{path('app_formulaire_de_contact')}}">Contact</a></li>  
             {# LE app.user PERMET D'afficher dans la nav seulelement le LOGIN si on est pas connecté et seuelement le logout si on est connécté !!!  #}
             {% if  app.user %}
                <li><a href="{{path('app_logout')}}">Logout</a></li> 
                {% else %}
                 <li><a href="{{path('app_login')}}">Login</a></li>         
             {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{path('app_admin')}}">Admin</a></li>
+            {% endif %}     
+                
             
          
         </ul>
@@ -28,6 +32,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function(){
+        $('nav ul li ul').hide();
         $('nav ul li a').click(function(){
             if($(this).text() == 'Prestations ▼'){
                 $('nav ul li ul').toggle();

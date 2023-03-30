@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin!{% endblock %}
+
+{% block body %}
+    <h1>Admin</h1>
+        {% for message in app.flashes('admin') %}
+            {{message}}
+        {% endfor %}
+        <section>
+            <h2>Commentaires</h2>
+            {% for com in coms %}
+                <h3>{{com.commentaire}}</h3>
+                <p>{{com.name}}</p>
+                {{ include('admin/_delete_form.html.twig') }}  
+            {% endfor %}
+        </section>
+        <section>
+            <h2>Users</h2>
+            {% for user in users %}
+                <h3>{{user.email}}</h3>
+                <p>{{user.pseudo}}</p>
+                {{ include('admin/_delete_form.html2.twig') }}  
+            {% endfor %}
+        </section>
+        <section>
+            <h2>Contact</h2>
+            {% for contact in contacts %}
+                <h3>{{contact.email}}</h3>
+                <p>{{contact.date|date('Y,D,M')}}</p>
+                <p>{{contact.demande}}</p>
+                 
+            {% endfor %}
+        </section>
+        
+        
+        
+{% endblock %}
+

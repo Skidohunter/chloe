@@ -3,14 +3,14 @@
 {% block title %}Hello LocationsController!{% endblock %}
 
 {% block body %}
-<h1>Réalisations</h1>
-{% if is_granted('ROLE_ADMIN') %}
-    <section class="sectionForm">
-        <div class='form'>
-            {{form(form)}}
-        </div>
-    </section>
-{% endif %}
+    <h1>Réalisations</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <section class="sectionForm">
+            <div class='form'>
+                {{form(form)}}
+            </div>
+        </section>
+    {% endif %}
 <section id="indexPresta">
     {% for real in reals %}
         <article class="indexArticle">
