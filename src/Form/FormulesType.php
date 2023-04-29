@@ -6,9 +6,11 @@ use App\Entity\Formules;
 use App\Entity\Prestations;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class FormulesType extends AbstractType
 {
@@ -18,6 +20,21 @@ class FormulesType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('prix')
+            ->add('img',FileType::class,[
+                'label' => 'Image de la presta',
+                'required' => false,
+                'data_class' => null,
+                'constraints' => [
+                    new File([
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/jpg'
+                    ],
+                    'mimeTypesMessage' => 'Seul les formats png, jpg ou jpeg sont acceptés'              
+               ])
+            ]
+            ])
             ->add('Envoyer',SubmitType::class)
         ;
     }

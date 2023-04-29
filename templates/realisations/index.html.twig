@@ -3,7 +3,7 @@
 {% block title %}Hello LocationsController!{% endblock %}
 
 {% block body %}
-    <h1>Réalisations</h1>
+<main>
     {% if is_granted('ROLE_ADMIN') %}
         <section class="sectionForm">
             <div class='form'>
@@ -11,18 +11,18 @@
             </div>
         </section>
     {% endif %}
-<section id="indexPresta">
-    {% for real in reals %}
-        <article class="indexArticle">
-            <h3>{{real.name}}</h3>
-            <p>{{real.description}}</p>
-            <img src="{{asset('imgPrestations/' ~ real.img )}}" alt"{{real.name}}" />
-            <a class="btn" href="{{ path('app_realisation_show', {'id': real.id}) }}">Voir Evenement<a>
-            {% if is_granted('ROLE_ADMIN') %}
-                    {{ include('realisations/_delete_form.html.twig') }}   
-            {% endif %}
-        </article>      
-    {% endfor %}
-</section>
-
+    <section id="indexPresta">
+        {% for real in reals %}
+            <article class="indexArticle">
+                <h3>{{real.name}}</h3>
+                <p>{{real.description}}</p>
+                <img src="{{asset('imgPrestations/' ~ real.img )}}" alt"{{real.name}}" />
+                <a class="btn" href="{{ path('app_realisation_show', {'id': real.id}) }}">Voir Evenement<a>
+                {% if is_granted('ROLE_ADMIN') %}
+                        {{ include('realisations/_delete_form.html.twig') }}   
+                {% endif %}
+            </article>      
+        {% endfor %}
+    </section>
+</main>
 {% endblock %}

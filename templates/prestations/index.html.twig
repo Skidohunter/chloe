@@ -1,39 +1,80 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Prestations{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
+    <div class="your-class">
+        <div><img src="{{asset('imgCaroussel/3f2a9c57-8649-45b6-9093-a32db9c8ddc3.JPG')}}" alt=""></div>
+        <div><img src="{{asset('imgCaroussel/7E1D66FE-719A-4BF7-9B3A-A56C09ED5345.JPG')}}" alt=""></div>
+        <div><img src="{{asset('imgCaroussel/f8dd9fac-4f33-4449-8c84-5f6c1ae57027.JPG')}}" alt=""></div>
+        <div><img src="{{asset('imgCaroussel/VDL07658.jpg')}}" alt=""></div>
+    </div>
+     <a href="#section-suivante" class="fleche">↓</a>
 
-<div class="example-wrapper">
-    <h1>Hello {% if  app.user %}{{app.user.pseudo}}{% endif %}</h1>
-</div>
-
-{% for message in app.flashes('succes') %}
-    {{message}}
-{% endfor %} 
-
-{# is granted permet de récupere la valeur que l'on veut dans l'entité user,
-en l'occurence ici le role admin pour l'ajout d'article. #}
-
-{% if is_granted('ROLE_ADMIN') %}
-    <section class="sectionForm">
-        <div class='form'>
-            {{form(form)}}
+    <section id='indexSection'>
+        <h2 class='hIndex'>Entreprise d'organisation de mariage et d'évènements à Périgueux et alentours mais aussi en France et à l'étranger.<h2>
+        <div class='indexPres'>
+            <div>
+                <img src="https://chloestutzmann.fr/wp-content/uploads/2022/10/VDL07466-2-740x1024.jpg" alt="">
+            </div>
+            <div class="homeText">
+                <h2>Bienvenue dans mon entreprise</h2>
+                <p>Si vous êtes ici, c'est qu'un bel évènement aura lieu très bientôt !</p>
+                <p>Vous avez besoin d'accompagnement pour l'organisation de votre</p>
+                <p>mariage où d'un évènements ?</p>
+                <p>Et cela vous demande beaucoup d'organisation !</p> 
+                <p>Je serai là pour vous !</p>
+                <p>Échanges privilégiés, par téléphone, visio ou en rendez-vous, autour d'un café,</p>
+                <p>nous échangeons autant de fois que vous le souhaitez.</p>
+                <a class="{{app.request.get('_route') == 'app_formulaire_de_contact' ? 'pathActive'}}" href="{{path('app_formulaire_de_contact')}}">Contact</a>        
+            </div>
         </div>
     </section>
-{% endif %}
+    <div>
+        <h1>{% if  app.user %}Hello {{app.user.pseudo}}{% endif %}</h1>
+    </div>
 
-<section id="indexPresta">
-    {% for presta in prestas %}
+    <h1 class='hPresta'>MES PRESTATIONS</h1>
+    <section id="indexPresta">
         <article class="indexArticle">
-            <h3>{{presta.name}}</h3>
-            <img src="{{asset('imgPrestations/' ~ presta.img )}}" alt"{{presta.name}}" />
-            <a class="btn" href="{{ path('app_formules', {'id': presta.id}) }}">Voir Formules<a>
-            {# {{ include('music/_delete_form.html.twig') }}     #}
-        </article>      
-    {% endfor %}
-</section>
-
-
-{% endblock %}
+            <div>
+                <img src="https://chloestutzmann.fr/wp-content/uploads/2023/02/IMG_2035-752x1024.jpg" alt="">
+            </div>
+            <div id="section-suivante" class='backDiv'>
+                <h3>Mariages</h3>
+                <p>• Formule Sérénité</p>
+                <p>• Formule Accompagnement</p>
+                <p>• Formule Apaisement jour j</p>
+                <p>• Formule SOS</p>
+                <a class='btnIndex' href="{{ path('app_formules', {'id': 1}) }}">En savoir plus</a>
+            </div>
+        </article>
+        <article class="indexArticle">
+            <div>
+                <img src="https://chloestutzmann.fr/wp-content/uploads/2021/07/A95413DA-50BA-4A20-A00E-2EEC36F544D3-683x1024.jpg" alt="">
+            </div>
+            <div class='backDiv'>
+                <h3>Les evenements </h3>
+                <a class="aEvenements" href="{{ path('app_formules', {'id': 6}) }}">• Baptême</a>
+                <a class="aEvenements" href="{{ path('app_formules', {'id': 3}) }}">• Anniversaire</a>
+                <a class="aEvenements" href="{{ path('app_formules', {'id': 2}) }}">• Baby Shower</a>
+                <a class="aEvenements" href="{{ path('app_formules', {'id': 4}) }}">• Gender Reveal Party</a>
+                <a class="aEvenements" href="{{ path('app_formules', {'id': 5}) }}">• Décoration Vitrine de Noël</a>
+            </div>
+        </article>
+        <article class="indexArticle">
+            <div>
+                <img src="https://chloestutzmann.fr/wp-content/uploads/2022/10/VDL07466-2-740x1024.jpg" alt="">
+            </div>
+            <div class='backDiv'>
+                <h3>Contact</h3>
+                <p>Dites moi en plus sur votre évènement.</p>
+                <p>Je prendrai le temps d’étudier chaque</p>
+                <p>demande avec attention.</p>
+                <a class=" btnIndex {{app.request.get('_route') == 'app_formulaire_de_contact' ? 'pathActive'}}" href="{{path('app_formulaire_de_contact')}}">Contact</a>
+            </div>
+        </article>
+    </section>
+    
+    {% endblock %}

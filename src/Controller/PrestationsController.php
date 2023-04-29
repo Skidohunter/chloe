@@ -70,7 +70,20 @@ class PrestationsController extends AbstractController
         $form->handleRequest($request);
     
  
-        if ($form->isSubmitted() && $form->isValid()) { 
+        if ($form->isSubmitted() && $form->isValid()){ 
+            $file =$form->get('img')->getData();
+            if($file){
+                // Méthode pour récuperer uniquement les nom de l'image sans l'extension.
+               $originalNameFile = pathinfo($file->getClientOriginalName(),PATHINFO_FILENAME);
+               // Ajout d'un nom unique avec le nom de l'image unique id et concaténation avec guessExtension qui récupere l'extension de l'img : png jpeg....
+               $newFileName = $originalNameFile.uniqid().'.'.$file->guessExtension();
+               //Création de la route ou sauvegarder l'img voir pense bête sur symfony
+               $file->move($this->getParameter('img_directory'),$newFileName);
+               //Definit le nouveau non de Img à envoyer en BDD
+               $formule->setImg($newFileName);
+               // Permet de créer un message de succes à l'envoie du formulaire avec image
+           }
+
             $presta = $prestationsRepository->findOneBy(['id'=>$id]);
             $formule->setRelation($presta);
             $formulesRepository->add($formule,true);

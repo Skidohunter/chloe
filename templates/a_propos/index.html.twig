@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LocationsController!{% endblock %}
+
+{% block body %}
+<main>
+    <section id='aProposSection'>
+        <div class='indexPres'>
+            <div>
+                <img src="https://chloestutzmann.fr/wp-content/uploads/2022/10/VDL07466-2-740x1024.jpg" alt="">
+            </div>
+            <div class='aPropos'>
+                <h2>À propos de</h2>
+                <h2>Chloé Stutzmann</h2>
+                <p>Pendant 10 ans, je me suis épanouie dans le monde du commerce (vendeuse dans un magasin d’ameublements et de décoration, bijoutière) Ma mission était donc de comprendre les envies et les besoins de mes client(e)s pour enfin y répondre au mieux.</p>
+                <p>Il s’agit donc de relever le même challenge. Tout d’abord écouter, comprendre les envies des amoureux, des client(e)s prêts à me confier l’organisation et la décoration de leur mariage où événements.
+                </p>
+                <p>Passionnée de décoration depuis petite, j’adorée organisé des événements pour réunir ceux que j’aimer. Cette envie de vouloir créer mon entreprise pour vivre de ma passion m’a toujours animer !
+                </p>
+                <p>Débordante d’idées, chaleureuse, créative et perfectionniste, je serai m’adapter à toutes demandes. Douce et attentive, je serai à votre écoute pour capter toutes vos émotions, vos envies, vos besoins et ce dans les moindres détails.
+                </p>        
+                <a class="{{app.request.get('_route') == 'app_formulaire_de_contact' ? 'pathActive'}}" href="{{path('app_formulaire_de_contact')}}">Contact</a>        
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

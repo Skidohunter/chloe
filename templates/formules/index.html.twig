@@ -3,33 +3,39 @@
 {% block title %}Hello PrestationsController!{% endblock %}
 
 {% block body %}
-
-
-<div class="example-wrapper">
-    <h1>Hello {% if  app.user %}{{app.user.email}}{% endif %}</h1>
-</div>
-{# is granted permet de récupere la valeur que l'on veut dans l'entité user,
-en l'occurence ici le role admin pour l'ajout d'article. #}
-{% if is_granted('ROLE_ADMIN') %}
-    <section class="sectionForm">
-        <div class='form'>
-            {{form(form)}}
-        </div>
-    </section>
-{% endif %}
-<section id="indexPresta">
-    {% if prestation.formules is not empty %}
-        <h2>Formules :</h2>
-        <ul>
-            {% for formule in prestation.formules %}
-                <li>{{ formule.name }} - {{formule.description}} - {{ formule.prix }} €</li>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{path('edit' , {'id' : formule.id})}}">Modifier</a>
-                    <a href="{{path('remove' , {'id' : formule.id})}}">Supprimer</a>
-                {% endif %}  
-            {% endfor %}
-        </ul>
-           
+<main>
+    {# is granted permet de récupere la valeur que l'on veut dans l'entité user,
+    en l'occurence ici le role admin pour l'ajout d'article. #}
+    {% if is_granted('ROLE_ADMIN') %}
+        <section class="sectionForm">
+            <div class='form'>
+                {{form(form)}}
+            </div>
+        </section>
     {% endif %}
-</section>
+    <section id="indexFormules">  
+        {% if prestation.formules is not empty %}
+                {% for formule in prestation.formules %}
+                <div class="divFormules">
+                    <div>
+                        <img src="{{asset('imgPrestations/' ~ formule.img )}}" alt"{{formule.name}}" />
+                    </div>
+                    <div class="textFormules">
+                        <div class="textSize">
+                            <h2>{{ formule.name }}</h2>
+                            <p class="formuleDescr">{{formule.description}}</p>
+                            <p class="formulePrix">A partir de {{ formule.prix }} €</p>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{path('edit' , {'id' : formule.id})}}">Modifier</a>
+                                <a href="{{path('remove' , {'id' : formule.id})}}">Supprimer</a>
+                            {% endif %}  
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            
+        {% endif %}
+    </section>
+</main>
+
 {% endblock %}

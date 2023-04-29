@@ -2,12 +2,12 @@
 {% block title %}Blog : edit {{formuleName}}{% endblock %}
 
     {% block body %}
-
-        <h1>Modification de la formule : </h1>
-        <article class='form'>
-            {{form(form)}}
-        </article>
-        <a href="{{path('app_prestations')}}">Accueil</a>
-
+    <main>
+        <section class="sectionForm">
+            <div class='form'>
+                {{form(form)}}
+            </div>
+        </section>
+    </main>
     {% endblock %}
   

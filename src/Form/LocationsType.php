@@ -27,6 +27,7 @@ class LocationsType extends AbstractType
             ->add('img',FileType::class,[
                 'label' => 'Image de la presta',
                 'required' => false,
+                'data_class' => null,
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',

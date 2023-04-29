@@ -1,0 +1,56 @@
+#indexFormules{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    
+    
+
+
+    img{
+        width: 400px;
+        height: 500px;
+        object-fit: cover;
+        border-top-right-radius: 500px;
+        border-top-left-radius: 500px;
+    }
+}
+
+.divFormules{
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    text-align: center;
+    flex-wrap: wrap;
+    
+}
+
+.textFormules{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .textSize{
+        width: 30vw;
+
+        h2{
+           padding-bottom: 20px;
+           font-size: 25px;
+        }
+
+        .formulePrix{
+            padding-top: 20px;
+        }
+
+        .formuleDescr{
+            letter-spacing: 1px;
+            word-spacing: 4px;
+        }
+        
+    }
+   
+}

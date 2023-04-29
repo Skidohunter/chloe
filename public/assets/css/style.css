@@ -1,0 +1,567 @@
+@charset "UTF-8";
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  /* HTML5 display-role reset for older browsers */
+}
+* html, * body, * div, * span, * applet, * object, * iframe,
+* h1, * h2, * h3, * h4, * h5, * h6, * p, * blockquote, * pre,
+* a, * abbr, * acronym, * address, * big, * cite, * code,
+* del, * dfn, * em, * img, * ins, * kbd, * q, * s, * samp,
+* small, * strike, * strong, * sub, * sup, * tt, * var,
+* b, * u, * i, * center,
+* dl, * dt, * dd, * ol, * ul, * li,
+* fieldset, * form, * label, * legend,
+* table, * caption, * tbody, * tfoot, * thead, * tr, * th, * td,
+* article, * aside, * canvas, * details, * embed,
+* figure, * figcaption, * footer, * header, * hgroup,
+* menu, * nav, * output, * ruby, * section, * summary,
+* time, * mark, * audio, * video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  color: black;
+}
+* article, * aside, * details, * figcaption, * figure,
+* footer, * header, * hgroup, * menu, * nav, * section {
+  display: block;
+}
+* body {
+  line-height: 1;
+  overflow-x: hidden;
+}
+* ol, * ul {
+  list-style: none;
+}
+* blockquote, * q {
+  quotes: none;
+}
+* blockquote:before, * blockquote:after,
+* q:before, * q:after {
+  content: "";
+  content: none;
+}
+* table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  background-color: #FAF8F2;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Petit Formal Script";
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+nav ul li {
+  display: inline-block;
+  position: relative;
+}
+nav ul li a {
+  display: block;
+  margin: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+}
+nav a:hover {
+  color: wheat;
+}
+
+ul li ul.ulDynamique li {
+  display: block;
+}
+
+ul li ul.ulDynamique {
+  width: fit-content;
+  background: #FAF8F2;
+  position: absolute;
+  z-index: 999;
+  display: none;
+}
+
+ul li:hover ul.ulDynamique {
+  display: block;
+}
+
+.pathActive {
+  border-bottom: solid 2px wheat;
+}
+
+.burger {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .navLinks {
+    top: 100%;
+    right: 0;
+    width: 100vw;
+    background-color: #FAF8F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    padding-bottom: 15px;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+  .navLinks.open {
+    display: flex;
+    animation: transformMenu 4s ease-in-out forwards;
+  }
+  @keyframes transformMenu {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: initial;
+    }
+  }
+  .burger {
+    display: block;
+    position: relative;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  .bar {
+    display: block;
+    width: 45px;
+    height: 4px;
+    background: black;
+    border-radius: 3px;
+  }
+  .bar::before, .bar::after {
+    content: "";
+    width: 45px;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    background: black;
+    border-radius: 3px;
+  }
+  .bar::before {
+    transform: translateY(-12px);
+  }
+  .bar::after {
+    transform: translateY(12px);
+  }
+  .divFormules {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .textSize {
+    width: auto !important;
+    margin: 20px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .indexPres {
+    flex-direction: column;
+  }
+  .aPropos {
+    width: auto !important;
+    margin: 20px;
+  }
+}
+.hIndex {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  margin: 20px;
+  font-size: 2rem;
+}
+
+.indexPres {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 30px;
+}
+.indexPres img {
+  width: 500px;
+  border-top-right-radius: 500px;
+  border-top-left-radius: 500px;
+}
+.indexPres .homeText {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 20px;
+}
+.indexPres .homeText h2 {
+  padding-bottom: 20px;
+}
+.indexPres .homeText a {
+  font-size: 19px;
+  background-color: wheat;
+  border-radius: 30px;
+  width: 100px;
+  margin: auto;
+  padding: 10px;
+}
+.indexPres .homeText a:hover {
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hPresta {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #EFE9E1;
+  font-size: 2rem;
+}
+
+#indexSection {
+  padding-bottom: 50px;
+}
+
+#indexPresta {
+  padding-top: 50px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  text-align: center;
+}
+#indexPresta .indexArticle {
+  display: flex;
+  flex-direction: column;
+}
+#indexPresta .indexArticle .aEvenements:hover {
+  color: wheat;
+}
+#indexPresta .backDiv {
+  gap: 6px;
+  background-color: white;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+#indexPresta .backDiv h3 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#indexPresta .backDiv .btnIndex {
+  background-color: wheat;
+  padding: 10px;
+  border-radius: 50px;
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15px;
+}
+#indexPresta .backDiv .btnIndex:hover {
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+#indexPresta img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-top-right-radius: 500px;
+  border-top-left-radius: 500px;
+}
+
+.sectionForm {
+  padding: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sectionForm form {
+  border: 1px solid black;
+  padding: 100px;
+  border-radius: 50%;
+  background-color: #EFE9E1;
+}
+.sectionForm form div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sectionForm button:hover {
+  background-color: wheat;
+}
+
+.your-class img {
+  width: 100%;
+  height: calc(100vh - 200px);
+  object-fit: cover;
+}
+
+.slick-prev, .slick-next {
+  visibility: hidden;
+}
+
+.fleche {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  color: #000;
+  text-decoration: none;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #000;
+  animation-name: move;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+}
+#aProposSection {
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
+.aPropos {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.aPropos a {
+  font-size: 19px;
+  background-color: wheat;
+  border-radius: 30px;
+  width: 100px;
+  margin: auto;
+  padding: 10px;
+}
+.aPropos a:hover {
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+footer {
+  background-color: #efe9e1;
+  padding: 20px;
+  text-align: center;
+}
+footer p {
+  letter-spacing: 3px;
+  padding-top: 20px;
+}
+footer li {
+  font-size: 12px;
+}
+footer .icones {
+  display: flex;
+  gap: 10px;
+}
+footer a:hover {
+  color: wheat;
+}
+
+.listeFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  gap: 10px;
+}
+.listeFooter ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 50px;
+}
+
+#tableAdmin {
+  padding-top: 18vh;
+}
+
+/* Appliquer un style de base à la table */
+.table {
+  padding-top: 400px;
+  width: 50%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-left: auto; /* Ajouter cette propriété pour centrer le tableau horizontalement */
+  margin-right: auto; /* Ajouter cette propriété pour centrer le tableau horizontalement */
+  margin-top: auto;
+}
+
+/* Appliquer des styles aux en-têtes de colonnes */
+.table th {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Appliquer des styles aux cellules de données */
+.table td {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+}
+
+/* Appliquer un style de zébrures aux lignes du tableau */
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Appliquer un style de survol aux lignes du tableau */
+.table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+  border: solid 1px black;
+  border-radius: 50%;
+  width: 20vw;
+  padding: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EFE9E1;
+}
+#login button:hover {
+  background-color: wheat;
+  margin: auto;
+}
+#login a:hover {
+  color: wheat;
+}
+
+#register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  border: solid 1px black;
+  border-radius: 50%;
+  width: 20vw;
+  padding: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EFE9E1;
+}
+#register button:hover {
+  background-color: wheat;
+}
+#register form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+#register div {
+  display: flex;
+  flex-direction: column;
+}
+
+#indexFormules {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+#indexFormules img {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  border-top-right-radius: 500px;
+  border-top-left-radius: 500px;
+}
+
+.divFormules {
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.textFormules {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.textFormules .textSize {
+  width: 30vw;
+}
+.textFormules .textSize h2 {
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+.textFormules .textSize .formulePrix {
+  padding-top: 20px;
+}
+.textFormules .textSize .formuleDescr {
+  letter-spacing: 1px;
+  word-spacing: 4px;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -34,4 +34,10 @@ class FormulaireDeContactController extends AbstractController
         ]);
        
     }
+
+    #[Route('/a/propos', name: 'app_a_propos')]
+    public function aPropos()
+    {
+        return $this->render('a_propos/index.html.twig');
+    }
 }

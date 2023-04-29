@@ -3,70 +3,73 @@
 {% block title %}Admin!{% endblock %}
 
 {% block body %}
+<main id="admin">
     <h1>Admin</h1>
         {% for message in app.flashes('admin') %}
             {{message}}
         {% endfor %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Commentaire</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for com in coms %}
+        <div id="tableAdmin">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>{{com.name}}</td>
-                        <td>{{com.commentaire}}</td>
-                        <td>{{ include('admin/_delete_form.html.twig') }}</td>
+                        <th>Name</th>
+                        <th>Commentaire</th>
+                        <th>Options</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for com in coms %}
+                        <tr>
+                            <td>{{com.name}}</td>
+                            <td>{{com.commentaire}}</td>
+                            <td>{{ include('admin/_delete_form.html.twig') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>User pseudo</th>
-                    <th>User mail</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for user in users %}
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>{{user.pseudo}}</td>
-                        <td>{{user.email}}</td>
-                        <td>{{ include('admin/_delete_form.html2.twig') }}</td>
+                        <th>User pseudo</th>
+                        <th>User mail</th>
+                        <th>Options</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{user.pseudo}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{ include('admin/_delete_form.html2.twig') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Contact Mail</th>
-                    <th>Date</th>
-                    <th>Demande</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for contact in contacts %}
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>{{contact.email}}</td>
-                        <td>{{contact.date|date('Y,D,M')}}</td>
-                        <td>{{contact.demande}}</td>
-                        <td>{{ include('admin/_delete_form.html3.twig') }}</td>
+                        <th>Contact Mail</th>
+                        <th>Date</th>
+                        <th>Demande</th>
+                        <th>Options</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for contact in contacts %}
+                        <tr>
+                            <td>{{contact.email}}</td>
+                            <td>{{contact.date|date('Y,D,M')}}</td>
+                            <td>{{contact.demande}}</td>
+                            <td>{{ include('admin/_delete_form.html3.twig') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-        
+</main> 
         
         
 {% endblock %}

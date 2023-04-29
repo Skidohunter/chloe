@@ -1,0 +1,95 @@
+@media screen and (max-width: 900px) {
+    .navLinks{
+        top: 100%;
+        right: 0;
+        width: 100vw;
+        background-color: #FAF8F2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        padding-bottom: 15px;
+    }
+
+    .navbar{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navLinks.open {
+        display: flex;
+        animation: transformMenu 4s ease-in-out forwards;
+      }
+
+      @keyframes transformMenu {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: initial;
+    }
+  }
+
+    
+    .burger {
+      display: block;
+      position: relative;
+      padding: 0;
+      width: 45px;
+      height: 45px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+
+    .bar{
+        display: block;
+        width: 45px;
+        height: 4px;
+        background: black;
+        border-radius: 3px;
+    }
+
+    .bar::before,.bar::after{
+        content: "";
+        width: 45px;
+        height: 4px;
+        position: absolute;
+        left: 0;
+        background: black;
+        border-radius: 3px;
+    }
+
+    .bar::before{
+        transform: translateY(-12px);
+    }
+
+    .bar::after{
+        transform: translateY(12px);
+    }
+
+    .divFormules{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .textSize {
+      width: auto !important;
+      margin: 20px;
+  }
+
+}
+
+@media screen and (max-width: 1400px){
+    .indexPres{
+      flex-direction: column;
+    }
+
+    .aPropos{
+      width: auto !important;
+      margin: 20px;
+    }
+}

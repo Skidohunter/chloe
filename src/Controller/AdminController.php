@@ -43,7 +43,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/delete/user/{id}", name="app_com_delete", methods={"POST"})
+     * @Route("/delete/user/{id}", name="app_user_delete", methods={"POST"})
      */
 
     public function deleteUser(Request $request,User $user,UserRepository $userRepository) :Response
@@ -57,7 +57,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/delete/contact/{id}", name="app_com_delete", methods={"POST"})
+     * @Route("/delete/contact/{id}", name="app_contact_delete", methods={"POST"})
      */
 
      public function deleteContact(Request $request,FormulaireDeContact $contact,FormulaireDeContactRepository $formulaireDeContactRepository) :Response

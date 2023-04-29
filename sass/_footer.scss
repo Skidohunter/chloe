@@ -1,0 +1,42 @@
+footer{
+    background-color: #efe9e1;
+    padding: 20px;
+    text-align: center;
+    p{
+      letter-spacing: 3px;
+      padding-top: 20px;
+      
+    }
+    li{
+      font-size: 12px;
+    }
+    
+    .icones{
+      display: flex;
+      gap: 10px;
+  
+    }
+
+    a:hover{
+      color: wheat;
+    }
+  }
+  
+  .listeFooter{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  gap: 10px;
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+   
+  }
+  

@@ -1,0 +1,54 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+
+    ul li{
+        display: inline-block;
+        position: relative;
+    }
+    
+    ul li a {
+        display: block;
+        margin: 20px ;
+        text-align: center;
+        font-size: 15px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    a:hover{
+        color: wheat;
+    }
+    
+}
+
+
+ul li ul.ulDynamique li{
+    display: block;
+}
+
+ul li ul.ulDynamique {
+    width: fit-content;
+    background: #FAF8F2;
+    position: absolute;
+    z-index: 999;
+    display: none;
+   
+}
+
+
+
+ul li:hover ul.ulDynamique{
+    display: block;
+}
+
+
+
+.pathActive{
+    border-bottom: solid 2px wheat;
+}
+
+.burger{
+    display: none;
+}

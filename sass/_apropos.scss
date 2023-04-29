@@ -1,0 +1,28 @@
+#aProposSection{
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+
+.aPropos{
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a{
+        font-size: 19px;
+        background-color: wheat;
+        border-radius: 30px;
+        width: 100px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    a:hover{
+        color: black;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    
+}

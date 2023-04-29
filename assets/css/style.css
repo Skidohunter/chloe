@@ -1,0 +1,234 @@
+* {
+  /* HTML5 display-role reset for older browsers */
+}
+* html, * body, * div, * span, * applet, * object, * iframe,
+* h1, * h2, * h3, * h4, * h5, * h6, * p, * blockquote, * pre,
+* a, * abbr, * acronym, * address, * big, * cite, * code,
+* del, * dfn, * em, * img, * ins, * kbd, * q, * s, * samp,
+* small, * strike, * strong, * sub, * sup, * tt, * var,
+* b, * u, * i, * center,
+* dl, * dt, * dd, * ol, * ul, * li,
+* fieldset, * form, * label, * legend,
+* table, * caption, * tbody, * tfoot, * thead, * tr, * th, * td,
+* article, * aside, * canvas, * details, * embed,
+* figure, * figcaption, * footer, * header, * hgroup,
+* menu, * nav, * output, * ruby, * section, * summary,
+* time, * mark, * audio, * video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  color: black;
+}
+* article, * aside, * details, * figcaption, * figure,
+* footer, * header, * hgroup, * menu, * nav, * section {
+  display: block;
+}
+* body {
+  line-height: 1;
+  overflow-x: hidden;
+}
+* ol, * ul {
+  list-style: none;
+}
+* blockquote, * q {
+  quotes: none;
+}
+* blockquote:before, * blockquote:after,
+* q:before, * q:after {
+  content: "";
+  content: none;
+}
+* table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  background-color: #FAF8F2;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  min-height: 100%;
+}
+
+h1, h2, h3 {
+  font-family: "Petit Formal Script";
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+ul li {
+  display: inline-block;
+  position: relative;
+}
+
+ul li a {
+  display: block;
+  margin: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-family: "Petit Formal Script";
+  font-weight: bold;
+}
+
+ul li ul.ulDynamique li {
+  display: block;
+}
+
+ul li ul.ulDynamique {
+  width: fit-content;
+  background: #FAF8F2;
+  position: absolute;
+  z-index: 999;
+  display: none;
+}
+
+ul li:hover ul.ulDynamique {
+  display: block;
+}
+
+.pathActive {
+  border-bottom: solid 2px wheat;
+}
+
+.hIndex {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.indexPres {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 30px;
+}
+.indexPres img {
+  width: 500px;
+  border-top-right-radius: 500px;
+  border-top-left-radius: 500px;
+}
+
+.hPresta {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #EFE9E1;
+}
+
+#indexSection {
+  padding-bottom: 50px;
+}
+
+#indexPresta {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  text-align: center;
+}
+#indexPresta .indexArticle {
+  display: flex;
+  flex-direction: column;
+}
+#indexPresta .backDiv {
+  gap: 6px;
+  background-color: white;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+#indexPresta .backDiv h3 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#indexPresta .backDiv .btnIndex {
+  background-color: wheat;
+  padding: 10px;
+  border-radius: 50px;
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+}
+#indexPresta img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-top-right-radius: 500px;
+  border-top-left-radius: 500px;
+}
+
+.sectionForm {
+  padding: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sectionForm form {
+  border: 1px solid black;
+  padding: 20px;
+}
+.sectionForm form div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.your-class img {
+  width: 100%;
+  height: calc(100vh - 200px);
+  object-fit: cover;
+}
+
+.slick-prev, .slick-next {
+  visibility: hidden;
+}
+
+#aProposSection {
+  padding-top: 100px;
+}
+
+.aPropos {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+footer {
+  background-color: #EFE9E1;
+  padding: 20px;
+}
+footer p {
+  letter-spacing: 3px;
+}
+footer li {
+  font-size: 12px;
+}
+footer .icones {
+  display: flex;
+  gap: 10px;
+}
+
+.listeFooter {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 20px;
+}/*# sourceMappingURL=style.css.map */

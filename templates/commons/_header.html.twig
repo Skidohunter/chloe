@@ -1,42 +1,37 @@
 <header>
-    <nav>
-        <ul>
-            <li><a href="{{path('app_prestations')}}">Accueil</a></li>
-            <li><a>Prestations ▼</a>
-                <ul>
-                    <li><a href="{{ path('app_formules', {'id': 1}) }}">Mariage</a></li>
-                    <li><a href="{{ path('app_formules', {'id': 2}) }}">Baby shower</a></li>
-                    <li><a href="{{ path('app_formules', {'id': 3}) }}">Anniversaire</a></li> 
+    <nav class="navbar">
+        <button class="burger">
+            <span class="bar"></span>
+        </button>
+        <ul class="navLinks">
+            <li><a class="{{app.request.get('_route') == 'app_prestations' ? 'pathActive'}}" href="{{path('app_prestations')}}">Accueil</a></li>
+            <li><a class="{{app.request.get('_route') == 'app_formules' ? 'pathActive'}}">Prestations ⏷ </a>
+                <ul class = "ulDynamique">
+                    <li><a href="{{ path('app_formules', {'id': 1}) }}">MARIAGE</a></li>
+                    <li><a href="{{ path('app_formules', {'id': 2}) }}">BABY SHOWER</a></li>
+                    <li><a href="{{ path('app_formules', {'id': 3}) }}">ANNIVERSAIRES</a></li>
+                    <li><a href="{{ path('app_formules', {'id': 4}) }}">GENDER REVEAL PARTY</a></li> 
+                    <li><a href="{{ path('app_formules', {'id': 5}) }}">VITRINES DE NOËL </a></li> 
+                    <li><a href="{{ path('app_formules', {'id': 6}) }}">BAPTÊMES</a></li>  
                 </ul>
             </li>
-            <li><a href="{{path('app_realisations')}}">Realisations</a></li>
-            <li><a href="{{path('app_locations')}}">Locations</a></li> 
-            <li><a>A propos</a></li> 
-            <li><a href="{{path('app_formulaire_de_contact')}}">Contact</a></li>  
+            <li><a class="{{app.request.get('_route') == 'app_realisations' ? 'pathActive'}}" href="{{path('app_realisations')}}">Realisations</a></li>
+            <li><a class="{{app.request.get('_route') == 'app_locations' ? 'pathActive'}}" href="{{path('app_locations')}}">Locations</a></li> 
+            <li><a class="{{app.request.get('_route') == 'app_a_propos' ? 'pathActive'}}" href="{{path('app_a_propos')}}">A propos</a></li> 
+            <li><a class="{{app.request.get('_route') == 'app_formulaire_de_contact' ? 'pathActive'}}" href="{{path('app_formulaire_de_contact')}}">Contact</a></li>  
             {# LE app.user PERMET D'afficher dans la nav seulelement le LOGIN si on est pas connecté et seuelement le logout si on est connécté !!!  #}
             {% if  app.user %}
                <li><a href="{{path('app_logout')}}">Logout</a></li> 
                {% else %}
-                <li><a href="{{path('app_login')}}">Login</a></li>         
+                <li><a class="{{app.request.get('_route') == 'app_login' ? 'pathActive'}}" href="{{path('app_login')}}">Login</a></li>         
             {% endif %}
             {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="{{path('app_admin')}}">Admin</a></li>
-            {% endif %}     
-                
-            
-         
+                <li><a class="{{app.request.get('_route') == 'app_admin' ? 'pathActive'}}" href="{{path('app_admin')}}">Admin</a></li>
+            {% endif %}            
         </ul>
+        
     </nav>
 </header>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $('nav ul li ul').hide();
-        $('nav ul li a').click(function(){
-            if($(this).text() == 'Prestations ▼'){
-                $('nav ul li ul').toggle();
-            }
-        });
-    });
-</script>
+
