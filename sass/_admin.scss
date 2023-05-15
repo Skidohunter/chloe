@@ -1,24 +1,25 @@
 h1{
     text-align: center;
     padding-top: 50px;
+    font-size: 2rem;
 }
 
 #tableAdmin{
    padding-top: 18vh;
 }
-/* Appliquer un style de base à la table */
+
 .table {
     padding-top: 400px;
     width: 50%;
     border-collapse: collapse;
     margin-bottom: 20px;
     text-align: center;
-    margin-left: auto; /* Ajouter cette propriété pour centrer le tableau horizontalement */
-    margin-right: auto; /* Ajouter cette propriété pour centrer le tableau horizontalement */
+    margin-left: auto; 
+    margin-right: auto; 
     margin-top: auto;
   }
   
-  /* Appliquer des styles aux en-têtes de colonnes */
+
   .table th {
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
@@ -26,18 +27,18 @@ h1{
     text-align: center;
   }
   
-  /* Appliquer des styles aux cellules de données */
+
   .table td {
     border: 1px solid #dee2e6;
     padding: 8px;
   }
   
-  /* Appliquer un style de zébrures aux lignes du tableau */
+
   .table tbody tr:nth-child(even) {
     background-color: #f8f9fa;
   }
   
-  /* Appliquer un style de survol aux lignes du tableau */
+
   .table tbody tr:hover {
     background-color: #e9ecef;
   }

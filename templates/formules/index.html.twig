@@ -25,6 +25,7 @@
                             <h2>{{ formule.name }}</h2>
                             <p class="formuleDescr">{{formule.description}}</p>
                             <p class="formulePrix">A partir de {{ formule.prix }} €</p>
+                            <a>Brochure</a>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{path('edit' , {'id' : formule.id})}}">Modifier</a>
                                 <a href="{{path('remove' , {'id' : formule.id})}}">Supprimer</a>

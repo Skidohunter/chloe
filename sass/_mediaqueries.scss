@@ -1,4 +1,4 @@
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 960px) {
     .navLinks{
         top: 100%;
         right: 0;
@@ -21,6 +21,14 @@
         display: flex;
         animation: transformMenu 4s ease-in-out forwards;
       }
+
+    .your-class.dNone{
+      display: none;
+    }
+
+    .fleche.dNone{
+      display: none;
+    }
 
       @keyframes transformMenu {
     0% {
@@ -80,6 +88,15 @@
       width: auto !important;
       margin: 20px;
   }
+
+}
+
+@media screen and (max-width: 1100px){
+  #indexPresta{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
 
 }
 

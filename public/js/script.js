@@ -1,5 +1,7 @@
 let burger = document.querySelector(".burger");
 let menu = document.querySelector(".navLinks");
+let carousel = document.querySelector(".your-class");
+let fleche = document.querySelector(".fleche");
 
 $(document).ready(function() {
     $('.your-class').slick({
@@ -16,4 +18,7 @@ $(document).ready(function() {
 burger.addEventListener('click',open)
 function open (){
   menu.classList.toggle('open')
+  carousel.classList.toggle('dNone')
+  fleche.classList.toggle('dNone')
+
 }

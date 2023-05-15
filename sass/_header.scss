@@ -13,12 +13,13 @@ nav{
         display: block;
         margin: 20px ;
         text-align: center;
-        font-size: 15px;
+        font-size: 20px;
         font-family: 'Poppins', sans-serif;
     }
 
     a:hover{
-        color: wheat;
+        color: #EFE9E1;
+        font-weight: bold;
     }
     
 }
@@ -38,15 +39,15 @@ ul li ul.ulDynamique {
 }
 
 
-
 ul li:hover ul.ulDynamique{
     display: block;
+    
 }
 
 
 
 .pathActive{
-    border-bottom: solid 2px wheat;
+    border-bottom: solid 2px  #EFE9E1;
 }
 
 .burger{
