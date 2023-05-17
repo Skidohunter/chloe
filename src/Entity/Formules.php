@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\FormulesRepository;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=FormulesRepository::class)
@@ -42,6 +45,20 @@ class Formules
      * @ORM\Column(type="string", length=255)
      */
     private $img;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pdf;
+
+    /**
+     * @Vich\UploadableField(mapping="my_pdf_files", fileNameProperty="pdf")
+     * @Assert\NotBlank(message="Please upload a PDF file.")
+     * @Assert\File(mimeTypes={"application/pdf"})
+     */
+    
+   
+     private $pdfFile;
 
 
     public function getId(): ?int
@@ -107,6 +124,33 @@ class Formules
         $this->img = $img;
 
         return $this;
+    }
+
+    public function getPdf(): ?string
+    {
+         
+    return $this->pdf;
+
+    }
+
+    public function setPdf(?string $pdf): self
+    {
+        
+        $this->pdf = $pdf; 
+        return $this;
+    }
+
+    public function getPdfFile(): ?File
+    {
+        return $this->pdfFile ? new File($this->pdfFile) : null;
+    }
+
+    public function setPdfFile(?File $pdfFile = null): self
+    {
+        $this->pdfFile = $pdfFile;
+
+        return $this;
+
     }
 
 }

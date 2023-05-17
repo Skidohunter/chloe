@@ -82,7 +82,24 @@ class PrestationsController extends AbstractController
                //Definit le nouveau non de Img à envoyer en BDD
                $formule->setImg($newFileName);
                // Permet de créer un message de succes à l'envoie du formulaire avec image
-           }
+
+            $pdfFile = $form->get('pdfFile')->getData();
+            if ($pdfFile) {
+                $originalFilename = pathinfo($pdfFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'.'.$pdfFile->guessExtension();
+
+                // Move the uploaded file to a directory
+                $pdfFile->move(
+                    $this->getParameter('pdf_directory'), // Specify the directory where you want to store PDF files
+                    $newFilename
+                );
+
+                $formule->setPdf($newFilename);
+            }
+           };
+           
+
+           
 
             $presta = $prestationsRepository->findOneBy(['id'=>$id]);
             $formule->setRelation($presta);
@@ -117,6 +134,34 @@ class PrestationsController extends AbstractController
         $formuleForm->handleRequest($request);
        
         if($formuleForm->isSubmitted() && $formuleForm->isValid()){
+
+              $file =$formuleForm->get('img')->getData();
+            if($file){
+                // Méthode pour récuperer uniquement les nom de l'image sans l'extension.
+               $originalNameFile = pathinfo($file->getClientOriginalName(),PATHINFO_FILENAME);
+               // Ajout d'un nom unique avec le nom de l'image unique id et concaténation avec guessExtension qui récupere l'extension de l'img : png jpeg....
+               $newFileName = $originalNameFile.uniqid().'.'.$file->guessExtension();
+               //Création de la route ou sauvegarder l'img voir pense bête sur symfony
+               $file->move($this->getParameter('img_directory'),$newFileName);
+               //Definit le nouveau non de Img à envoyer en BDD
+               $formule->setImg($newFileName);
+
+            $pdfFile = $formuleForm->get('pdfFile')->getData();
+            if ($pdfFile) {
+                $originalFilename = pathinfo($pdfFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'.'.$pdfFile->guessExtension();
+
+                // Move the uploaded file to a directory
+                $pdfFile->move(
+                    $this->getParameter('pdf_directory'), // Specify the directory where you want to store PDF files
+                    $newFilename
+                );
+
+                $formule->setPdf($newFilename);
+            }
+           };
+            
+            
             $formulesRepository->add($formule,true);
             return $this->redirectToRoute('app_formules',['id' => $formule->getRelation()->getId()]);
         }

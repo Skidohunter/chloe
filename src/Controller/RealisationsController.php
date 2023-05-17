@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Realisations;
 use App\Form\RealisationsType;
 use App\Repository\CommentaireRepository;
+use App\Repository\EvenementRepository;
 use App\Repository\PrestationsRepository;
 use App\Repository\RealisationsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,11 +50,12 @@ class RealisationsController extends AbstractController
             /**
      * @Route("/realisations/{id}", name="app_realisation_show", methods={"GET"})
      */
-    public function show(CommentaireRepository $commentaireRepository,RealisationsRepository $realisationsRepository,$id): Response
+    public function show(CommentaireRepository $commentaireRepository,RealisationsRepository $realisationsRepository,EvenementRepository $evenementRepository, $id): Response
     {
         return $this->render('realisations/show.html.twig', [
             'real' => $realisationsRepository->findRealById($id),
-            'coms' => $commentaireRepository->findBy(['realisationId'=> $id])
+            'coms' => $commentaireRepository->findBy(['realisationId'=> $id]),
+            'evenements' =>$evenementRepository->findBy(['realisationId'=> $id]),
         ]);
     }
 

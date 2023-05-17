@@ -17,15 +17,13 @@
         {% if prestation.formules is not empty %}
                 {% for formule in prestation.formules %}
                 <div class="divFormules">
-                    <div>
                         <img src="{{asset('imgPrestations/' ~ formule.img )}}" alt"{{formule.name}}" />
-                    </div>
                     <div class="textFormules">
                         <div class="textSize">
                             <h2>{{ formule.name }}</h2>
                             <p class="formuleDescr">{{formule.description}}</p>
                             <p class="formulePrix">A partir de {{ formule.prix }} €</p>
-                            <a>Brochure</a>
+                            <a class="brochure" href="{{ asset('brochures/' ~ formule.pdf) }}" target="_blank">Ouvrir la Brochure</a>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{path('edit' , {'id' : formule.id})}}">Modifier</a>
                                 <a href="{{path('remove' , {'id' : formule.id})}}">Supprimer</a>

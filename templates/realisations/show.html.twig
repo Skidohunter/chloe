@@ -4,13 +4,26 @@
 
 {% block body %}
 <main class="main">
-    <h1>L'événement : </h1>
-    <section id="sectionArticle">
-            <article class="articleMusic">
-                <h3>{{real.name}}</h3>
-                {% for com in coms %}
-                    <p>{{com.commentaire}}</p>
-                {% endfor %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn evenementBtn" href="{{ path('app_evenement', {'id': real.id}) }}">Ajouter Photos<a>
+        {% endif %}
+            <article>
+                <h3 class="evenementName">{{real.name}}</h3>
+                   <div class="photoEvent">
+                        {% for evenement in evenements %}
+                            {% for photo in evenement.photos %}
+                                <div class="photo-zoom">
+                                    <img src="{{ asset('photos_directory/' ~ photo) }}" alt="{{ real.name }}" class="lightbox-image" />
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="evenementCom">
+                        <h2>Vos commentaires</h2>
+                        {% for com in coms %}
+                            <p>{{com.commentaire}}</p>
+                        {% endfor %}
+                    <div>
                  {% if is_granted('ROLE_USER') %}
                      <a class="btn" href="{{ path('app_commentaire', {'id': real.id}) }}">Ajouter Commentaire<a>
                 {% endif %}

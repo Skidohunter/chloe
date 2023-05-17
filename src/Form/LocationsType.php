@@ -30,7 +30,6 @@ class LocationsType extends AbstractType
                 'data_class' => null,
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024k',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',

@@ -46,6 +46,7 @@
         .formulePrix{
             padding-top: 20px;
             font-size: 20px;
+            padding-bottom: 40px;
         }
 
         .formuleDescr{
@@ -55,5 +56,22 @@
         }
         
     }
+
+    .brochure{
+        font-size: 19px;
+        background-color: #efe9e1;
+        border-radius: 30px;
+        width: 100px;
+        margin: auto;
+        padding: 10px;
+        margin-top: 50px;
+    }
+
+    .brochure:hover{
+        color: black;
+        transform: translateY(-30px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+    
    
 }

@@ -35,6 +35,10 @@ class FormulesType extends AbstractType
                ])
             ]
             ])
+            ->add('pdfFile', FileType::class, [
+                'label' => 'PDF File',
+                'required' => false,
+            ])
             ->add('Envoyer',SubmitType::class)
         ;
     }
