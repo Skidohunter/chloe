@@ -21,8 +21,10 @@ class RealisationsType extends AbstractType
             ->add('img',FileType::class,[
                 'label' => 'Photos de l\'événement',
                 'required' => false,
+                'data_class' => null,
             ])
             ->add('prestationsId',EntityType::class,[
+                'label' => 'Prestations :',
                 'class' => Prestations::class,
                 'choice_label' => 'name',
                 'expanded' => true,

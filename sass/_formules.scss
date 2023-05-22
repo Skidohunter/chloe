@@ -51,10 +51,24 @@
 
         .formuleDescr{
             letter-spacing: 1px;
-            word-spacing: 4px;
+            word-spacing: 2px;
+            line-height: 1.2;
             font-size: 20px;
         }
         
+    }
+
+    a{
+        background-color: #efe9e1;
+        padding: 10px;
+        border-radius: 50px;
+        width: fit-content;
+    
+    }
+
+    a:hover{
+        color: black;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     }
 
     .brochure{

@@ -9,18 +9,29 @@ footer{
     }
     li{
       font-size: 15px;
+
+      a:hover{
+        color: #321911;
+        font-weight: bolder;
+      }
     }
     
     .icones{
       display: flex;
+      justify-content: center;
+      align-self: center;
       gap: 10px;
+      padding-bottom: 15px;
+
+      svg{
+        width: 20px;
+        height: 20px;
+      }
   
     }
     
 
-    a:hover{
-      color:  #FAF8F2;
-    }
+   
   }
   
   .listeFooter{

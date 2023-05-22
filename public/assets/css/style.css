@@ -63,7 +63,7 @@ main {
   flex: 1;
 }
 
-p, a {
+p, a, button {
   font-family: "Poppins", sans-serif;
 }
 
@@ -89,8 +89,8 @@ nav ul li a {
   font-family: "Poppins", sans-serif;
 }
 nav a:hover {
-  color: #EFE9E1;
-  font-weight: bold;
+  color: #321911;
+  font-weight: bolder;
 }
 
 ul li ul.ulDynamique li {
@@ -117,7 +117,21 @@ ul li:hover ul.ulDynamique {
   display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 790px) {
+  #navDash ul {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1082px) {
+  .evenementBtn {
+    top: 150px !important;
+  }
+}
+@media screen and (max-width: 1080px) {
   .navLinks {
     top: 100%;
     right: 0;
@@ -195,7 +209,7 @@ ul li:hover ul.ulDynamique {
   }
 }
 @media screen and (max-width: 1100px) {
-  #indexPresta {
+  #indexPresta, #realSection {
     display: flex !important;
     flex-direction: column !important;
   }
@@ -281,8 +295,13 @@ ul li:hover ul.ulDynamique {
   display: flex;
   flex-direction: column;
 }
+#indexPresta .indexArticle h3 {
+  font-size: 2rem;
+}
 #indexPresta .indexArticle .aEvenements:hover {
-  color: #EFE9E1;
+  color: #321911;
+  font-weight: bolder;
+  scale: 1.3;
 }
 #indexPresta .backDiv {
   gap: 6px;
@@ -299,7 +318,7 @@ ul li:hover ul.ulDynamique {
 }
 #indexPresta .backDiv .btnIndex {
   background-color: #efe9e1;
-  padding: 10px;
+  padding: 12px;
   border-radius: 50px;
   width: fit-content;
   position: absolute;
@@ -328,7 +347,7 @@ ul li:hover ul.ulDynamique {
 }
 .sectionForm form {
   border: 1px solid black;
-  padding: 100px;
+  padding: 150px;
   border-radius: 50%;
   background-color: #EFE9E1;
 }
@@ -356,7 +375,7 @@ ul li:hover ul.ulDynamique {
   bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
   color: #000;
   text-decoration: none;
@@ -365,7 +384,8 @@ ul li:hover ul.ulDynamique {
   line-height: 60px;
   text-align: center;
   border-radius: 50%;
-  border: 1px solid #000;
+  border: 2px solid #000;
+  background-color: rgba(239, 233, 225, 0.5);
   animation-name: move;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -387,6 +407,7 @@ ul li:hover ul.ulDynamique {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  line-height: 1.4;
 }
 .aPropos h2 {
   font-size: 2rem;
@@ -421,12 +442,20 @@ footer p {
 footer li {
   font-size: 15px;
 }
+footer li a:hover {
+  color: #321911;
+  font-weight: bolder;
+}
 footer .icones {
   display: flex;
+  justify-content: center;
+  align-self: center;
   gap: 10px;
+  padding-bottom: 15px;
 }
-footer a:hover {
-  color: #FAF8F2;
+footer .icones svg {
+  width: 20px;
+  height: 20px;
 }
 
 .listeFooter {
@@ -451,7 +480,8 @@ h1 {
 }
 
 #tableAdmin {
-  padding-top: 18vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .table {
@@ -475,6 +505,9 @@ h1 {
 .table td {
   border: 1px solid #dee2e6;
   padding: 8px;
+  max-width: 300px;
+  height: fit-content;
+  word-wrap: break-word;
 }
 
 .table tbody tr:nth-child(even) {
@@ -483,6 +516,21 @@ h1 {
 
 .table tbody tr:hover {
   background-color: #e9ecef;
+}
+
+.dNone {
+  display: none;
+}
+
+#navDash ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  background-color: #efe9e1;
+}
+#navDash ul a {
+  cursor: pointer;
 }
 
 #login {
@@ -495,7 +543,7 @@ h1 {
   border: solid 1px black;
   border-radius: 50%;
   width: 20vw;
-  padding: 20px;
+  padding: 50px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -586,8 +634,19 @@ h1 {
 }
 .textFormules .textSize .formuleDescr {
   letter-spacing: 1px;
-  word-spacing: 4px;
+  word-spacing: 2px;
+  line-height: 1.2;
   font-size: 20px;
+}
+.textFormules a {
+  background-color: #efe9e1;
+  padding: 10px;
+  border-radius: 50px;
+  width: fit-content;
+}
+.textFormules a:hover {
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 .textFormules .brochure {
   font-size: 19px;
@@ -613,9 +672,19 @@ h1 {
 
 .evenementBtn {
   padding-top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #efe9e1;
+  padding: 10px;
+  border-radius: 50px;
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 165px;
+}
+
+.evenementBtn:hover {
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 .photoEvent {
@@ -642,6 +711,29 @@ h1 {
 .evenementCom h2 {
   font-size: 2rem;
   padding-bottom: 50px;
+}
+.evenementCom a {
+  padding-top: 50px;
+}
+.evenementCom a:hover {
+  color: #321911;
+  font-weight: bolder;
+  scale: 1.3;
+}
+
+.coms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5;
+  border: 1px solid rgba(0, 0, 0, 0.37);
+  padding: 50px;
+}
+.coms p {
+  width: 300px;
+  word-wrap: break-word;
+  text-align: center;
 }
 
 .photo-zoom {
@@ -673,6 +765,123 @@ h1 {
 .lightbox img {
   max-width: 90%;
   max-height: 90%;
+}
+
+#realSection {
+  padding-top: 50px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  text-align: center;
+}
+#realSection .realArticle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+#realSection .realArticle h3 {
+  font-size: 2rem;
+}
+#realSection .realArticle a {
+  background-color: #efe9e1;
+  padding: 10px;
+  border-radius: 50px;
+  width: fit-content;
+}
+#realSection .realArticle a:hover {
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+#realSection .realArticle p {
+  padding-top: 10px;
+}
+#realSection .realArticle img {
+  padding-top: 10px;
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-top-right-radius: 500px;
+  border-top-left-radius: 500px;
+  padding-bottom: 20px;
+}
+#realSection .backDivReal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+#realSection .btn {
+  background-color: #efe9e1;
+  padding: 10px;
+  border-radius: 50px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+#realSection .btn:hover {
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+#indexLocations {
+  padding-bottom: 50px;
+}
+
+.locationsArticle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+.locationsArticle h3 {
+  font-size: 2rem;
+}
+.locationsArticle img {
+  padding-top: 10px;
+  width: 400px;
+  height: 600px;
+  object-fit: cover;
+  border-top-right-radius: 500px;
+  border-top-left-radius: 500px;
+  padding-bottom: 20px;
+}
+.locationsArticle a {
+  background-color: #efe9e1;
+  padding: 10px;
+  border-radius: 50px;
+  width: fit-content;
+}
+.locationsArticle a:hover {
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+.locationsArticle .btn {
+  background-color: #efe9e1;
+  padding: 10px;
+  border-radius: 50px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+.locationsArticle .btn:hover {
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+.locationsArticle .backDivReal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */

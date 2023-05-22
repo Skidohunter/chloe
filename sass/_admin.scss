@@ -5,7 +5,8 @@ h1{
 }
 
 #tableAdmin{
-   padding-top: 18vh;
+   padding-top: 50px;
+   padding-bottom: 50px;
 }
 
 .table {
@@ -31,8 +32,12 @@ h1{
   .table td {
     border: 1px solid #dee2e6;
     padding: 8px;
+    max-width: 300px;
+    height: fit-content;
+    word-wrap: break-word;
   }
   
+
 
   .table tbody tr:nth-child(even) {
     background-color: #f8f9fa;
@@ -42,4 +47,19 @@ h1{
   .table tbody tr:hover {
     background-color: #e9ecef;
   }
+
+  .dNone{
+    display: none;
+  }
+
+  #navDash ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    background-color: #efe9e1;
+    a{
+      cursor: pointer;
+    }
+}
   

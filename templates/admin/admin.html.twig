@@ -5,11 +5,16 @@
 {% block body %}
 <main id="admin">
     <h1>Admin</h1>
-        {% for message in app.flashes('admin') %}
-            {{message}}
-        {% endfor %}
+    <nav id="navDash">
+        <ul>
+            <li><a id="allDash">Tout afficher</a></li>
+            <li><a id="commentaireDash">Commentaire</a></li>
+            <li><a id="userDash">User</a></li>
+            <li><a id="contactDash">Contact</a></li>
+        </ul>
+	</nav>
         <div id="tableAdmin">
-            <table class="table">
+            <table id="tableCom" class="table dNone">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -28,7 +33,7 @@
                 </tbody>
             </table>
 
-            <table class="table">
+            <table id="tableUser" class="table dNone">
                 <thead>
                     <tr>
                         <th>User pseudo</th>
@@ -47,7 +52,7 @@
                 </tbody>
             </table>
 
-            <table class="table">
+            <table id="tableContact" class="table dNone">
                 <thead>
                     <tr>
                         <th>Contact Mail</th>
@@ -60,8 +65,8 @@
                     {% for contact in contacts %}
                         <tr>
                             <td>{{contact.email}}</td>
-                            <td>{{contact.date|date('Y,D,M')}}</td>
-                            <td>{{contact.demande}}</td>
+                            <td>{{contact.date|date('d')}},{{ contact.date|date('m')}},{{ contact.date|date('Y')}}</td>
+                            <td class="tdDemande">{{contact.demande}}</td>
                             <td>{{ include('admin/_delete_form.html3.twig') }}</td>
                         </tr>
                     {% endfor %}

@@ -1,4 +1,21 @@
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 790px) {
+    #navDash ul{
+      display: flex;
+      flex-direction: column !important;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+}
+
+@media screen and (max-width: 1082px) {
+  .evenementBtn{
+    top: 150px !important;
+  }
+}
+
+@media screen and (max-width: 1080px) {
     .navLinks{
         top: 100%;
         right: 0;
@@ -88,11 +105,12 @@
       width: auto !important;
       margin: 20px;
   }
+    
 
 }
 
 @media screen and (max-width: 1100px){
-  #indexPresta{
+  #indexPresta , #realSection{
     display: flex !important;
     flex-direction: column !important;
   }

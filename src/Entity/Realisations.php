@@ -40,9 +40,14 @@ class Realisations
     private $prestationsId;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="realisationId")
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="realisationId", cascade={"remove"})
      */
     private $commentaires;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Evenement::class, mappedBy="realisationId", cascade={"remove"})
+     */
+    private $evenement;
 
     public function __construct()
     {
@@ -123,9 +128,30 @@ class Realisations
     public function removeCommentaire(Commentaire $commentaire): self
     {
         if ($this->commentaires->removeElement($commentaire)) {
-            // set the owning side to null (unless already changed)
             if ($commentaire->getRealisationId() === $this) {
                 $commentaire->setRealisationId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getEvenement(): ?Evenement
+    {
+        return $this->evenement;
+    }
+
+    public function setEvenement(?Evenement $evenement): self
+    {
+        if ($evenement !== $this->evenement) {
+            if ($this->evenement !== null) {
+                $this->evenement->setRealisationId(null);
+            }
+
+            $this->evenement = $evenement;
+
+            if ($evenement !== null) {
+                $evenement->setRealisationid($this);
             }
         }
 

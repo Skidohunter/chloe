@@ -1,12 +1,16 @@
-{% extends 'base.html.twig'%}
-{% block title %}Blog{% endblock %}
+{% extends 'base.html.twig' %}
 
-    {% block body %}
+{% block title %}Ajout d'un commentaire{% endblock %}
 
-        <h1>Ajout d'un commentaire : </h1>
-        
-        <article class='form'>
-            {{form(form)}}
-        </article>
-    {% endblock %}
-  
+{% block body %}
+    <main>
+        <section class="sectionForm">
+            <div class='form'>
+                {{form(form)}}
+            </div>
+        </section>
+    </main>
+
+
+
+{% endblock %}

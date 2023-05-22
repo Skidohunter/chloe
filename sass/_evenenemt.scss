@@ -7,9 +7,19 @@
 
 .evenementBtn{
    padding-top: 50px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+   background-color: #efe9e1;
+   padding: 10px;
+   border-radius: 50px;
+   width: fit-content;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   top: 165px;
+}
+
+.evenementBtn:hover{
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 .photoEvent{
@@ -39,6 +49,33 @@
         font-size: 2rem;
         padding-bottom: 50px;
     }
+
+    a{
+      padding-top: 50px;
+    }
+
+    a:hover{
+      color: #321911;
+      font-weight: bolder;
+      scale: 1.3;
+    }
+}
+
+.coms{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5;
+  border: 1px solid rgba(0, 0, 0, 0.37);
+  padding: 50px;
+  
+  
+  p{
+    width: 300px;
+    word-wrap: break-word;
+    text-align: center;
+  }
 }
 
 .photo-zoom {
